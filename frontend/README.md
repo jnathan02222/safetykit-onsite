@@ -35,7 +35,7 @@ which is an easy way to avoid CORS issues).
 frontend/
 ├── api-codegen/    # Helper functions and types for the backend API
 ├── app/            # Main React app logic
-└── README.md/      # Various general components (not a design system)
+└── common/      # Various general components (not a design system)
 ```
 
 For now I'm not using a design system, but it would probably be a good idea to
@@ -48,8 +48,7 @@ Usage of it will probably be added as a CI check, but for now download it and ha
 it format on save for your own sanity :)
 
 (this is more a note to self) It's probably also a good idea to learn
-[Next](https://nextjs.org/), [React](https://react.dev/) and
-[react-force-graph](https://github.com/vasturiano/react-force-graph) more thoroughly.
+[Next](https://nextjs.org/) and [React](https://react.dev/)
 
 ### API codegen
 

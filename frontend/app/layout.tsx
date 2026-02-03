@@ -8,8 +8,8 @@ const noto_serif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Atlas",
-  description: "Musicians mapped!",
+  title: "SafetyKit Onsite",
+  description: "Scraper",
 };
 
 export default function RootLayout({

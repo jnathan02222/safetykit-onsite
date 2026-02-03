@@ -4,103 +4,29 @@ export type ClientOptions = {
     baseUrl: string;
 };
 
-export type ArtistId = number;
+export type Example = number;
 
-/**
- * Artist
- */
-export type Artist = {
-    id: ArtistId;
-    /**
-     * Name
-     */
-    name: string;
-    /**
-     * Wikipedia Title
-     */
-    wikipedia_title?: string | null;
-    /**
-     * Wikipedia Description
-     */
-    wikipedia_description?: string | null;
-    /**
-     * Wikipedia Summary
-     */
-    wikipedia_summary?: string | null;
-};
-
-/**
- * Edge
- */
-export type Edge = {
-    source: Artist;
-    target: Artist;
-    /**
-     * Wikipedia Description
-     */
-    wikipedia_description?: string | null;
-};
-
-export type GraphUrlsEdgesData = {
-    body?: never;
-    path?: never;
-    query: {
-        artist: number;
-    };
-    url: '/api/edges';
-};
-
-export type GraphUrlsEdgesResponses = {
-    /**
-     * Response
-     *
-     * OK
-     */
-    200: Array<Edge>;
-};
-
-export type GraphUrlsEdgesResponse = GraphUrlsEdgesResponses[keyof GraphUrlsEdgesResponses];
-
-export type GraphUrlsSearchData = {
+export type GraphUrlsAddData = {
     body?: never;
     path?: never;
     query: {
         /**
-         * Name
+         * A
          */
-        name: string;
+        a: number;
+        /**
+         * B
+         */
+        b: number;
     };
-    url: '/api/search';
+    url: '/api/add';
 };
 
-export type GraphUrlsSearchResponses = {
+export type GraphUrlsAddResponses = {
     /**
-     * Response
-     *
      * OK
      */
-    200: Array<Artist>;
+    200: Example;
 };
 
-export type GraphUrlsSearchResponse = GraphUrlsSearchResponses[keyof GraphUrlsSearchResponses];
-
-export type GraphUrlsEdgeDescriptionData = {
-    body?: never;
-    path?: never;
-    query: {
-        source: number;
-        target: number;
-    };
-    url: '/api/edge-description';
-};
-
-export type GraphUrlsEdgeDescriptionResponses = {
-    /**
-     * Response
-     *
-     * OK
-     */
-    200: Array<Edge>;
-};
-
-export type GraphUrlsEdgeDescriptionResponse = GraphUrlsEdgeDescriptionResponses[keyof GraphUrlsEdgeDescriptionResponses];
+export type GraphUrlsAddResponse = GraphUrlsAddResponses[keyof GraphUrlsAddResponses];
