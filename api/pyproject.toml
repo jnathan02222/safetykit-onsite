@@ -1,0 +1,27 @@
+[project]
+name = "api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "accelerate>=1.12.0",
+    "beautifulsoup4>=4.14.3",
+    "daphne>=4.2.1",
+    "django>=6.0",
+    "django-ninja>=1.5.1",
+    "dotenv>=0.9.9",
+    "httpx>=0.28.1",
+    "neo4j>=6.0.3",
+    "pydantic>=2.12.5",
+    "torch>=2.9.1",
+    "torchvision>=0.24.1",
+    "tqdm>=4.67.1",
+    "transformers>=4.57.5",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+    "ty>=0.0.7",
+]

@@ -1,0 +1,16 @@
+services:
+
+  neo4j:
+    image: neo4j
+    volumes:
+      - neo4j-data:/data
+      - neo4j-logs:/logs
+      
+    ports:
+      - 127.0.0.1:7474:7474
+      - 127.0.0.1:7687:7687
+    
+
+volumes:
+  neo4j-data:
+  neo4j-logs: 

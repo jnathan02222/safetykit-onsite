@@ -1,0 +1,38 @@
+services:
+  backend:
+    image: jnathan02222/atlas-2-backend
+    environment:
+      NEO4J_HOST: neo4j
+      NEO4J_USER: "neo4j"
+      NEO4J_PASSWORD: "password"
+      NEO4J_DB: "neo4j"
+
+    restart: unless-stopped
+  neo4j:
+    image: neo4j
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+      - neo4j-logs:/logs
+    environment:
+      NEO4J_AUTH: none
+    restart: unless-stopped
+
+  nginx:
+    image: jnathan02222/atlas-2-nginx
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+    volumes:
+      - nginx-certbot:/etc/letsencrypt/
+      - type: bind
+        source: ./conf.d
+        target: /etc/nginx/conf.d
+    environment:
+      BACKEND_HOST: backend
+    restart: unless-stopped
+
+volumes:
+  neo4j-logs: 
+  nginx-certbot:
