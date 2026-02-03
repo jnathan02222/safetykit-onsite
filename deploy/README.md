@@ -18,7 +18,7 @@ docker compose up
 ```
 
 Note: there may be problems with containers starting in the wrong order.
-Ideally the Neo4j container should start first, then the backend container,
+Ideally the DB container should start first, then the backend container,
 which creates the indexes, and finally the Nginx container.
 
 Then, there are typically various annoying networking things to do:
@@ -55,11 +55,11 @@ sits in front of the backend server.
 To build the container that has it, run the following in `/nginx`.
 
 ```bash
-docker buildx build -t atlas-2-nginx --platform linux/amd64,linux/arm64 . # or whatever architecture the VM uses
+docker buildx build -t safetykit-onsite-nginx --platform linux/amd64,linux/arm64 . # or whatever architecture the VM uses
 
-docker tag atlas-2-nginx jnathan02222/atlas-2-nginx
+docker tag safetykit-onsite-nginx jnathan02222/safetykit-onsite-nginx
 
-docker push jnathan02222/atlas-2-nginx
+docker push jnathan02222/safetykit-onsite-nginx
 
 ```
 

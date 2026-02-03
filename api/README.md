@@ -16,7 +16,7 @@ uv run manage.py runserver
 
 Make sure to define an `.env` file with
 
-```
+<!-- ```
 NEO4J_HOST=localhost
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=password
@@ -33,7 +33,7 @@ Then run
 docker compose up
 ```
 
-This creates a Neo4j container and a Docker volume to persist the data.
+This creates a Neo4j container and a Docker volume to persist the data. -->
 
 ## Development
 
@@ -43,7 +43,6 @@ This creates a Neo4j container and a Docker volume to persist the data.
 frontend/
 ├── graph/          # Main API (currently all in urls.py)
 ├── integrations/   # Classes for grabbing data
-├── wikipedia_api/  # Helper class for Wikipedia API
 └── db.py           # Helper class to connect to Neo4j
 ```
 
@@ -56,7 +55,7 @@ Will probably be added as a CI check, but for now run it yourself.
 should be used as often as possible.
 
 Relevant backend technologies: [Django](https://www.djangoproject.com/),
-[Django Ninja](https://django-ninja.dev/), [Neo4j](https://neo4j.com/)
+[Django Ninja](https://django-ninja.dev/)
 and [Celery](https://docs.celeryq.dev/en/stable/) in the future
 when integrations become scheduled.
 
@@ -65,9 +64,9 @@ when integrations become scheduled.
 To manually build the backend container, run
 
 ```bash
-docker buildx build -t atlas-2-backend --platform linux/amd64,linux/arm64 .
+docker buildx build -t safetykit-onsite-backend --platform linux/amd64,linux/arm64 .
 
-docker tag atlas-2-backend jnathan02222/atlas-2-backend
+docker tag safetykit-onsite-backend jnathan02222/safetykit-onsite-backend
 
-docker push jnathan02222/atlas-2-backend
+docker push jnathan02222/safetykit-onsite-backend
 ```
