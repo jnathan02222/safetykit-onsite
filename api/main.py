@@ -1,10 +1,8 @@
-from integrations.wikipedia import Wikipedia
 import asyncio
-from integrations.inspired import Inspired
 
 
 async def main():
-    await Inspired().sync()
+    pass
 
 
 if __name__ == "__main__":
