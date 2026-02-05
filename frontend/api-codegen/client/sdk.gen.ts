@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { GraphUrlsAddData, GraphUrlsAddResponses } from './types.gen';
+import type { GraphUrlsAddData, GraphUrlsAddResponses, GraphUrlsListEmployeesData, GraphUrlsListEmployeesResponses, GraphUrlsListPoliciesData, GraphUrlsListPoliciesResponses, GraphUrlsSubtractData, GraphUrlsSubtractResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -22,3 +22,20 @@ export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends 
  * Add
  */
 export const graphUrlsAdd = <ThrowOnError extends boolean = false>(options: Options<GraphUrlsAddData, ThrowOnError>) => (options.client ?? client).get<GraphUrlsAddResponses, unknown, ThrowOnError>({ url: '/api/add', ...options });
+
+/**
+ * Subtract
+ */
+export const graphUrlsSubtract = <ThrowOnError extends boolean = false>(options: Options<GraphUrlsSubtractData, ThrowOnError>) => (options.client ?? client).get<GraphUrlsSubtractResponses, unknown, ThrowOnError>({ url: '/api/subtract', ...options });
+
+/**
+ * List Employees
+ */
+export const graphUrlsListEmployees = <ThrowOnError extends boolean = false>(options?: Options<GraphUrlsListEmployeesData, ThrowOnError>) => (options?.client ?? client).get<GraphUrlsListEmployeesResponses, unknown, ThrowOnError>({ url: '/api/example', ...options });
+
+/**
+ * List Policies
+ *
+ * List all policy violation analysis results.
+ */
+export const graphUrlsListPolicies = <ThrowOnError extends boolean = false>(options?: Options<GraphUrlsListPoliciesData, ThrowOnError>) => (options?.client ?? client).get<GraphUrlsListPoliciesResponses, unknown, ThrowOnError>({ url: '/api/policies', ...options });

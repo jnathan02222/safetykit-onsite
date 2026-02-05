@@ -4,7 +4,51 @@ export type ClientOptions = {
     baseUrl: string;
 };
 
-export type Example = number;
+/**
+ * PolicyViolationOut
+ */
+export type PolicyViolationOut = {
+    /**
+     * Id
+     */
+    id: number;
+    /**
+     * Url
+     */
+    url: string;
+    /**
+     * Title
+     */
+    title: string;
+    /**
+     * Is Adderall Sold
+     */
+    is_adderall_sold: boolean;
+    /**
+     * Appears Licensed Pharmacy
+     */
+    appears_licensed_pharmacy: boolean;
+    /**
+     * Uses Visa
+     */
+    uses_visa: boolean;
+    /**
+     * Explanation
+     */
+    explanation: string;
+    /**
+     * Screenshot Path
+     */
+    screenshot_path: string;
+    /**
+     * Screenshots
+     */
+    screenshots: Array<string>;
+    /**
+     * Analyzed At
+     */
+    analyzed_at: string;
+};
 
 export type GraphUrlsAddData = {
     body?: never;
@@ -24,9 +68,74 @@ export type GraphUrlsAddData = {
 
 export type GraphUrlsAddResponses = {
     /**
+     * Response
+     *
      * OK
      */
-    200: Example;
+    200: number;
 };
 
 export type GraphUrlsAddResponse = GraphUrlsAddResponses[keyof GraphUrlsAddResponses];
+
+export type GraphUrlsSubtractData = {
+    body?: never;
+    path?: never;
+    query: {
+        /**
+         * A
+         */
+        a: number;
+        /**
+         * B
+         */
+        b: number;
+    };
+    url: '/api/subtract';
+};
+
+export type GraphUrlsSubtractResponses = {
+    /**
+     * Response
+     *
+     * OK
+     */
+    200: number;
+};
+
+export type GraphUrlsSubtractResponse = GraphUrlsSubtractResponses[keyof GraphUrlsSubtractResponses];
+
+export type GraphUrlsListEmployeesData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/api/example';
+};
+
+export type GraphUrlsListEmployeesResponses = {
+    /**
+     * Response
+     *
+     * OK
+     */
+    200: Array<string>;
+};
+
+export type GraphUrlsListEmployeesResponse = GraphUrlsListEmployeesResponses[keyof GraphUrlsListEmployeesResponses];
+
+export type GraphUrlsListPoliciesData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/api/policies';
+};
+
+export type GraphUrlsListPoliciesResponses = {
+    /**
+     * Response
+     *
+     * OK
+     */
+    200: Array<PolicyViolationOut>;
+};
+
+export type GraphUrlsListPoliciesResponse = GraphUrlsListPoliciesResponses[keyof GraphUrlsListPoliciesResponses];

@@ -18,19 +18,45 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from ninja import NinjaAPI
-from integrations.types import Example
+from integrations.types import ExampleOut, PolicyViolationOut
+from data.models import Example, PolicyViolation
 
 api = NinjaAPI()
 
 
-@api.get("/add", response=Example)
+@api.get("/add", response=int)
 async def add(request, a: int, b: int):
     return a + b
 
 
-@api.get("/subtract", response=Example)
+@api.get("/subtract", response=int)
 async def subtract(request, a: int, b: int):
     return a - b
+
+
+@api.get("/example", response=list[str])
+def list_employees(request):
+    return [q.text for q in Example.objects.all()]
+
+
+@api.get("/policies", response=list[PolicyViolationOut])
+def list_policies(request):
+    """List all policy violation analysis results."""
+    return [
+        {
+            "id": p.id,
+            "url": p.url,
+            "title": p.title,
+            "is_adderall_sold": p.is_adderall_sold,
+            "appears_licensed_pharmacy": p.appears_licensed_pharmacy,
+            "uses_visa": p.uses_visa,
+            "explanation": p.explanation,
+            "screenshot_path": p.screenshot_path,
+            "screenshots": p.screenshots,
+            "analyzed_at": p.analyzed_at,
+        }
+        for p in PolicyViolation.objects.all()
+    ]
 
 
 urlpatterns = [

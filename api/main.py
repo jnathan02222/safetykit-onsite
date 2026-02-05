@@ -4,8 +4,20 @@ from pydantic import BaseModel
 import dotenv
 from serpapi import GoogleSearch
 import os
+import django
 
 dotenv.load_dotenv()
+
+# Configure Django settings
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "graph.settings")
+django.setup()
+
+from data.models import Example
+
+
+def django_test():
+    e = Example(text="Hello, world!")
+    e.save()
 
 
 def openai_test():
@@ -47,11 +59,12 @@ def serpapi_test():
 
 
 async def main():
-    serpapi_test()
+    pass
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    # asyncio.run(main())
+    django_test()
 
 """
 steps=[

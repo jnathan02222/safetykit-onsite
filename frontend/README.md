@@ -1,4 +1,4 @@
-# Atlas frontend
+# Frontend
 
 ## Quickstart
 
